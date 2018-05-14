@@ -1,13 +1,13 @@
 <h1 style="text-align: center;">{{title}}</h1>
     
-<form id="outerDiv" ng-app="todoList" ng-controller="todoControl">
+<form id="outerDiv" ng-app="todoList" ng-controller="todoControl" autocomplete="off">
     
     <p style='text-align: center; font-size: 10px;'>Enter a task to do, then click 'Add' to add it to the list. To toggle the completion of that task, check the ballot box.
             To remove that item, select the 'X' button.</p>
     
     <div id="addBar">
-        <input [(ngModel)]="todoAdd" name="todoAdd" placeholder="What would you like to do?" />
-        <button (click)="addItem();">Add</button>
+        <input [(ngModel)]="todoAdd" (input)="todoInputHandler($event.target.value);" name="todoAdd" placeholder="What would you like to do?" />
+        <button (click)="addItem();" [disabled]="!addEnabled">Add</button> <!--dynamic disable-->
     </div>
 
     <ul id="innerUL">

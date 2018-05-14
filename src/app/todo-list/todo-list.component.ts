@@ -8,9 +8,10 @@ import { item } from './item';
 })
 export class TodoListComponent {
     
+    addEnabled : boolean = false;
     title : string = 'Goodville Angular CLI 6.0.1 ToDo List'; //title to be used in header
     todoAdd : string = null; //placeholder for ngmodel input
-    testItem : item = new item('Write an Angular 4+ ToDo List', false); //test item 
+    testItem : item = new item('Write an Angular 4+ ToDo List', true); //test item 
     items: item[] = [this.testItem]; //array of items
     
     removeItem(index: number) {

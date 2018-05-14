@@ -7,8 +7,9 @@ html, body {
     position: absolute;
     width: 50%;
     height: 407px;
+    min-width: 500px;
     background: #f5f5f5;
-    top: 10%;
+    top: 100px;
     left: 25%;
     border: 3px double black;
     overflow-y: auto;
