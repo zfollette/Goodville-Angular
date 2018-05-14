@@ -1,0 +1,20 @@
+<h1 style="text-align: center;">{{title}}</h1>
+    
+<form id="outerDiv" ng-app="todoList" ng-controller="todoControl">
+    
+    <p style='text-align: center; font-size: 10px;'>Enter a task to do, then click 'Add' to add it to the list. To toggle the completion of that task, check the ballot box.
+            To remove that item, select the 'X' button.</p>
+    
+    <div id="addBar">
+        <input [(ngModel)]="todoAdd" name="todoAdd" placeholder="What would you like to do?" />
+        <button (click)="addItem();">Add</button>
+    </div>
+
+    <ul id="innerUL">
+        <li *ngFor="let item of items; let i = index">
+            <span [ngClass]="item.itemDone ? 'done' : 'notDone'">{{item.itemDesc}}</span> <!-- ternary/conditional operator for adding class-->
+            <span id="removeButton" (click)="removeItem(i);">&#x2716;</span>
+            <span id="checkButton" (click)="checkItem(i);">{{item.itemDone ? '&#9745;' : '&#9744;'}}</span> <!--conditional operator for checked/unchecked ballot box -->
+        </li>
+    </ul>
+</form>
